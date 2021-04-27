@@ -1,5 +1,5 @@
-let objetos = 
-[{
+let objetos = [
+    {
         nombre: 'mochila',
         genero: 'F'
     },
@@ -19,11 +19,12 @@ let objetos =
         nombre: 'melodía',
         genero: 'F',
         noHay: true
-    }]
+    }
+]
 
 function hayUne(objetoDeLaCasita) {
     let str = ''
-    if (!objetoDeLaCasita.hasOwnProperty('noHay'))
+    if (objetoDeLaCasita.noHay)
         str += 'hay '
 
 
