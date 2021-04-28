@@ -24,7 +24,7 @@ let objetos = [
 
 function hayUne(objetoDeLaCasita) {
     let str = ''
-    if (objetoDeLaCasita.noHay)
+    if (!objetoDeLaCasita.noHay)
         str += 'hay '
 
 
