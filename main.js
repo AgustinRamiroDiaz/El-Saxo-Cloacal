@@ -95,5 +95,5 @@ textInput.addEventListener('input', evento => {
     lyricsHTML.innerHTML = saxoCloacal(objetoDeLaCasita)
 })
 
-textInput.innerHTML = objetos
+textInput.innerHTML = JSON.stringify(objetos, null, 2)
 lyricsHTML.innerHTML = saxoCloacal(objetos)
