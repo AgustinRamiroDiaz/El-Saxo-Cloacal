@@ -1,30 +1,30 @@
 let objetos = [
     {
-        nombre: 'mochila',
-        genero: 'F'
+        "nombre": "mochila",
+        "genero": "F"
     },
     {
-        nombre: 'bolsa',
-        genero: 'F'
+        "nombre": "bolsa",
+        "genero": "F"
     },
     {
-        nombre: 'saxo',
-        genero: 'M'
+        "nombre": "saxo",
+        "genero": "M"
     },
     {
-        nombre: 'canilla',
-        genero: 'F'
+        "nombre": "canilla",
+        "genero": "F"
     },
     {
-        nombre: 'melodía',
-        genero: 'F',
-        noHay: true
+        "nombre": "melodía",
+        "genero": "F",
+        "hay": false
     }
 ]
 
 function hayUne(objetoDeLaCasita) {
     let str = ''
-    if (!objetoDeLaCasita.noHay)
+    if (objetoDeLaCasita.hay)
         str += 'hay '
 
 
@@ -55,12 +55,7 @@ function enLe(objetoDeLaCasita) {
 }
 
 function repetir(frase, veces, separador) {
-    let str = ''
-    for (let vez = 0; vez < veces; vez++) {
-        str += frase + separador
-    }
-    // TODO: Remover separador al final
-    return str
+    return Array(veces).fill(frase).join(separador)
 }
 
 function fraseTotal(objetos) {
@@ -82,12 +77,22 @@ function saxoCloacal(objetosEnLaCasitaDePiñón) {
         let objetoEnLaCasitaDePiñón = objetosEnLaCasitaDePiñón[index]
 
         let hayUneAlgox2 = repetir(hayUne(objetoEnLaCasitaDePiñón), 2, ', ')
-        lyrics += repetir(hayUneAlgox2, 2, '\n')
+        lyrics += repetir(hayUneAlgox2, 2, '<br/>')
 
-        frase = fraseTotal(objetosEnLaCasitaDePiñón.slice(0, index + 1).reverse()) + '\n'
+        frase = fraseTotal(objetosEnLaCasitaDePiñón.slice(0, index + 1).reverse()) + '<br/>'
         lyrics += repetir(frase, 2, '')
     }
     return lyrics
 }
 
-document.getElementById('lyrics').innerHTML = saxoCloacal(objetos).replace(/\r?\n/g, '<br />')
+
+let lyricsHTML = document.getElementById('lyrics')
+let textInput = document.getElementById('objetos de la casita')
+
+textInput.addEventListener('input', evento => {
+    let objetoDeLaCasita = JSON.parse(evento.target.value)
+    console.log(objetoDeLaCasita)
+    lyricsHTML.innerHTML = saxoCloacal(objetoDeLaCasita)
+})
+
+textInput.getElementById('lyrics').innerHTML = objetos
