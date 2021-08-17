@@ -24,7 +24,7 @@ let objetos = [
 
 function hayUne(objetoDeLaCasita) {
     let str = ''
-    if (objetoDeLaCasita.hay)
+    if (objetoDeLaCasita.hay == undefined || objetoDeLaCasita.hay)
         str += 'hay '
 
 
@@ -90,9 +90,10 @@ let lyricsHTML = document.getElementById('lyrics')
 let textInput = document.getElementById('objetos de la casita')
 
 textInput.addEventListener('input', evento => {
-    let objetoDeLaCasita = JSON.parse(evento.target.value)
-    console.log(objetoDeLaCasita)
+    let inputText = evento.target.value
+    let objetoDeLaCasita = JSON.parse(inputText)
     lyricsHTML.innerHTML = saxoCloacal(objetoDeLaCasita)
 })
 
-textInput.getElementById('lyrics').innerHTML = objetos
+textInput.innerHTML = objetos
+lyricsHTML.innerHTML = saxoCloacal(objetos)
