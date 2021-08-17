@@ -77,7 +77,7 @@ function saxoCloacal(objetosEnLaCasitaDePiñón) {
         let objetoEnLaCasitaDePiñón = objetosEnLaCasitaDePiñón[index]
 
         let hayUneAlgox2 = repetir(hayUne(objetoEnLaCasitaDePiñón), 2, ', ')
-        lyrics += repetir(hayUneAlgox2, 2, '<br/>')
+        lyrics += repetir(hayUneAlgox2, 2, '<br/>') + '<br/>'
 
         frase = fraseTotal(objetosEnLaCasitaDePiñón.slice(0, index + 1).reverse()) + '<br/>'
         lyrics += repetir(frase, 2, '')
